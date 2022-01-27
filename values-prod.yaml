@@ -1,16 +1,5 @@
 application: 
   host: rewura.com
-  datasource: 
-    url: "jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=prod_rewura_auth"
-    userName: "postgres"
-    password: "postgres"
-  oauth: 
-    facebook: 
-      clientId: "1670650839666976"
-      clientSecret: "97e1e2cfb217a1730563ad1361bda51c"
-    google: 
-      clientId: "912050282042-ais7fbu2uns1u3go9eoe6l8iaiv3iruo.apps.googleusercontent.com"
-      clientSecret: "5Ex-92yP7Q1YU_TmgtVXiYR5"
 
 ingress: 
   api: 

@@ -18,18 +18,27 @@ service:
     portType: ClusterIP
     image: gabendockerzone/rewura-frontend:59264d0
     componentSelector: web
-  #postgres: 
-  #  serviceName: postgres-service
-  #  port: 5432
-  #  portType: NodePort
-  #  image: postgres
-  #  componentSelector: postgres
   authorization: 
     serviceName: rewura-authorization-service
     port: 8302
     portType: ClusterIP
     image: gabendockerzone/authorization-service:e41e229
     componentSelector: server
+    environment: 
+      - name: 'DATASOURCE_URL'
+        value: 'jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=twogether_authorization'
+      - name: 'DATASOURCE_USER'
+        value: 'postgres'
+      - name: 'DATASOURCE_PASSWORD'
+        value: 'postgres'
+      - name: GOOGLE_CLIENT_ID
+        value: '912050282042-ais7fbu2uns1u3go9eoe6l8iaiv3iruo.apps.googleusercontent.com'
+      - name: GOOGLE_CLIENT_SECRET
+        value: '5Ex-92yP7Q1YU_TmgtVXiYR5'
+      - name: FACEBOOK_CLIENT_ID
+        value: '1670650839666976'
+      - name: FACEBOOK_CLIENT_SECRET
+        value: '97e1e2cfb217a1730563ad1361bda51c'
   file: 
     serviceName: rewura-file-upload-service
     port: 8303
@@ -42,6 +51,22 @@ service:
     portType: ClusterIP
     image: gabendockerzone/hobby-service:98b623c
     componentSelector: server-hobby
+    environment: 
+      - name: 'DATASOURCE_URL'
+        value: 'jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=twogether'
+      - name: 'DATASOURCE_USER'
+        value: 'postgres'
+      - name: 'DATASOURCE_PASSWORD'
+        value: 'postgres'
+      - name: AUTH_SERVICE_ENDPOINT
+        value: 'http://rewura-authorization-service:8302/api/auth'
+
+  #postgres: 
+  #  serviceName: postgres-service
+  #  port: 5432
+  #  portType: NodePort
+  #  image: postgres
+  #  componentSelector: postgres
 
 autoscaling:
   enabled: false
