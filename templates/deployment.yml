@@ -27,7 +27,7 @@ spec:
             - name: ZIPKIN_BASE_URL
               value: "http://zipkin-collector:9411"
             - name: BASE_URL
-              value: "https://{{ .Values.application.host }}"
+              value: "https://{{ $.Values.application.host }}"
             #- name: PGPASSWORD
             #  valueFrom:
             #    secretKeyRef:
