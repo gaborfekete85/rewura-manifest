@@ -33,7 +33,7 @@ pipeline {
             ], 'description': 'Target environment. This envs manifest ( values.yaml ) will be updated')
         string(name: 'TAG', defaultValue: 'latest', description: 'The new docker image tag. ')
         string(name: 'REPOSITORY', defaultValue: 'gabendockerzone', description: 'The docker repository where the images are loaded. ')
-        string(name: 'DOCKER_IMG_PREFIX', defaultValue: 'rewura-', description: 'To avoid confusion of docker image names. ')
+        string(name: 'DOCKER_IMG_PREFIX', defaultValue: 'rewura-', description: 'To avoid confusion of docker image names. IMPORTANT: Include "-" at the end like "rewura-" ')
     }
     stages {
             stage('Update GIT') {
@@ -49,7 +49,7 @@ pipeline {
                             git config user.email contact@feketegabor.com
                             git config user.name gaborfekete85
                             cat values-${ENVIRONMENT}.yaml
-                            sed -i 's+${REPOSITORY}/${DOCKER_IMG_PREFIX}-${SERVICE}.*+${REPOSITORY}/${DOCKER_IMG_PREFIX}-${SERVICE}:${TAG}+g' values-${ENVIRONMENT}.yaml
+                            sed -i 's+${REPOSITORY}/${DOCKER_IMG_PREFIX}${SERVICE}.*+${REPOSITORY}/${DOCKER_IMG_PREFIX}${SERVICE}:${TAG}+g' values-${ENVIRONMENT}.yaml
                             cat values-${ENVIRONMENT}.yaml
                             git add .
                             git commit -m 'Done by Jenkins Job changemanifest: ${SERVICE}:${TAG} on ${ENVIRONMENT}'
