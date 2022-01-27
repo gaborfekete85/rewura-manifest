@@ -70,7 +70,7 @@ service:
       - name: 'DATASOURCE_PASSWORD'
         value: 'postgres'
       - name: AUTH_SERVICE_ENDPOINT
-        value: 'http://rewura-authorization-service:8302/api'
+        value: 'http://rewura-authorization-service:8302/api/auth'
 
   #postgres: 
   #  serviceName: postgres-service
