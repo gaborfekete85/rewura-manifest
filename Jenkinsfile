@@ -52,7 +52,7 @@ pipeline {
                             cat values-${ENVIRONMENT}.yaml
                             git add .
                             git commit -m 'Done by Jenkins Job changemanifest: ${SERVICE}:${TAG} on ${ENVIRONMENT}'
-                            git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/rewura_manifest.git HEAD:master
+                            git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/rewura-manifest.git HEAD:master
                         """
 
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
