@@ -1,0 +1,86 @@
+application: 
+  host: rewura.com
+  datasource: 
+    url: "jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=prod_rewura_auth"
+    userName: "postgres"
+    password: "postgres"
+  oauth: 
+    facebook: 
+      clientId: "1670650839666976"
+      clientSecret: "97e1e2cfb217a1730563ad1361bda51c"
+    google: 
+      clientId: "912050282042-ais7fbu2uns1u3go9eoe6l8iaiv3iruo.apps.googleusercontent.com"
+      clientSecret: "5Ex-92yP7Q1YU_TmgtVXiYR5"
+
+ingress: 
+  api: 
+    fullName: nginx-ingress-api-dev
+  oauth2: 
+    fullName: nginx-ingress-oauth2-dev
+  frontend: 
+    fullName: nginx-ingress-frontend-dev
+  frontend_oauth: 
+    fullName: nginx-ingress-frontend-oauth-dev
+
+service:
+  frontend: 
+    serviceName: rewura-frontend-service
+    port: 8301
+    portType: ClusterIP
+    image: gabendockerzone/rewura-frontend:bdce946
+    componentSelector: web
+  authorization: 
+    serviceName: rewura-authorization-service
+    port: 8302
+    portType: ClusterIP
+    image: gabendockerzone/authorization-service:e41e2293
+    componentSelector: server
+    environment: 
+      - name: 'DATASOURCE_URL'
+        value: 'jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=prod_rewura_auth'
+      - name: 'DATASOURCE_USER'
+        value: 'postgres'
+      - name: 'DATASOURCE_PASSWORD'
+        value: 'postgres'
+      - name: GOOGLE_CLIENT_ID
+        value: '912050282042-ais7fbu2uns1u3go9eoe6l8iaiv3iruo.apps.googleusercontent.com'
+      - name: GOOGLE_CLIENT_SECRET
+        value: '5Ex-92yP7Q1YU_TmgtVXiYR5'
+      - name: FACEBOOK_CLIENT_ID
+        value: '1670650839666976'
+      - name: FACEBOOK_CLIENT_SECRET
+        value: '97e1e2cfb217a1730563ad1361bda51c'
+  file: 
+    serviceName: rewura-file-upload-service
+    port: 8303
+    portType: ClusterIP
+    image: gabendockerzone/file-upload-service:20aad91
+    componentSelector: server-file
+  hobby: 
+    serviceName: rewura-hobby-service
+    port: 8304
+    portType: ClusterIP
+    image: gabendockerzone/hobby-service:98b623c
+    componentSelector: server-hobby
+    environment: 
+      - name: 'DATASOURCE_URL'
+        value: 'jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=prod_rewura'
+      - name: 'DATASOURCE_USER'
+        value: 'postgres'
+      - name: 'DATASOURCE_PASSWORD'
+        value: 'postgres'
+      - name: AUTH_SERVICE_ENDPOINT
+        value: 'http://rewura-authorization-service:8302/api'
+
+  #postgres: 
+  #  serviceName: postgres-service
+  #  port: 5432
+  #  portType: NodePort
+  #  image: postgres
+  #  componentSelector: postgres
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
