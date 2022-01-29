@@ -49,7 +49,7 @@ service:
     serviceName: rewura-hobby-service
     port: 8304
     portType: ClusterIP
-    image: gabendockerzone/hobby-service:0523867
+    image: gabendockerzone/hobby-service:67eef02
     componentSelector: server-hobby
     environment: 
       - name: 'DATASOURCE_URL'
