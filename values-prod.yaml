@@ -16,7 +16,7 @@ service:
     serviceName: rewura-frontend-service
     port: 8301
     portType: ClusterIP
-    image: gabendockerzone/rewura-frontend:59264d0
+    image: gabendockerzone/rewura-frontend:7171c5c
     componentSelector: web
   authorization: 
     serviceName: rewura-authorization-service
@@ -49,7 +49,7 @@ service:
     serviceName: rewura-hobby-service
     port: 8304
     portType: ClusterIP
-    image: gabendockerzone/hobby-service:67c30ec
+    image: gabendockerzone/hobby-service:b35f572
     componentSelector: server-hobby
     environment: 
       - name: 'DATASOURCE_URL'
