@@ -26,7 +26,7 @@ service:
     componentSelector: server
     environment: 
       - name: 'DATASOURCE_URL'
-        value: 'jdbc:postgresql://postgres.clme60zevoc3.eu-central-1.rds.amazonaws.com:5432/postgres?currentSchema=rewura_auth_dev'
+        value: 'jdbc:postgresql://defaultdb.clme60zevoc3.eu-central-1.rds.amazonaws.com:5432/postgres?currentSchema=rewura_auth_dev'
       - name: 'DATASOURCE_USER'
         value: 'postgres'
       - name: 'DATASOURCE_PASSWORD'
@@ -53,7 +53,7 @@ service:
     componentSelector: server-hobby
     environment: 
       - name: 'DATASOURCE_URL'
-        value: 'jdbc:postgresql://postgres.clme60zevoc3.eu-central-1.rds.amazonaws.com:5432/postgres?currentSchema=rewura_dev'
+        value: 'jdbc:postgresql://defaultdb.clme60zevoc3.eu-central-1.rds.amazonaws.com:5432/postgres?currentSchema=rewura_dev'
       - name: 'DATASOURCE_USER'
         value: 'postgres'
       - name: 'DATASOURCE_PASSWORD'
