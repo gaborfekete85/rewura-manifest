@@ -1,5 +1,5 @@
 application: 
-  host: rewura.gleeze.com
+  host: dev.rewura.com
 
 ingress: 
   api: 
@@ -26,7 +26,7 @@ service:
     componentSelector: server
     environment: 
       - name: 'DATASOURCE_URL'
-        value: 'jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=twogether_authorization,public,pg_catalog'
+        value: 'jdbc:postgresql://postgres.clme60zevoc3.eu-central-1.rds.amazonaws.com/postgres?currentSchema=rewura_auth_dev,public,pg_catalog'
       - name: 'DATASOURCE_USER'
         value: 'postgres'
       - name: 'DATASOURCE_PASSWORD'
@@ -53,7 +53,7 @@ service:
     componentSelector: server-hobby
     environment: 
       - name: 'DATASOURCE_URL'
-        value: 'jdbc:postgresql://postgres-postgresql.managed/postgres?currentSchema=twogether,public,pg_catalog'
+        value: 'jdbc:postgresql://postgres.clme60zevoc3.eu-central-1.rds.amazonaws.com/postgres?currentSchema=rewura_dev,public,pg_catalog'
       - name: 'DATASOURCE_USER'
         value: 'postgres'
       - name: 'DATASOURCE_PASSWORD'
