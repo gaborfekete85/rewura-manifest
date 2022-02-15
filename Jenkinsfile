@@ -28,7 +28,7 @@ pipeline {
                       "prod"
             ], 'description': 'Target environment. This envs manifest ( values.yaml ) will be updated')
         choice(name: 'SERVICE', 
-            choices: ["frontend", 
+            choices: ["frontend", "frontend-v2",
                       "hobby-service", "authorization-service", "file-upload-service"
             ], 'description': 'Target environment. This envs manifest ( values.yaml ) will be updated')
         string(name: 'TAG', defaultValue: 'latest', description: 'The new docker image tag. ')
