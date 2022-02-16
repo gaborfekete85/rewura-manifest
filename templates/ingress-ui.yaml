@@ -17,10 +17,3 @@ spec:
               name: rewura-frontend-service
               port:
                 number: 8301
-        - path: /assets(/|$)(.*)
-          pathType: ImplementationSpecific
-          backend:
-            service: 
-              name: rewura-frontend-service
-              port: 
-                number: 8301
