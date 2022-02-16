@@ -10,6 +10,8 @@ ingress:
     fullName: nginx-ingress-frontend-dev-v2
   frontend_oauth: 
     fullName: nginx-ingress-frontend-oauth-dev-v2
+  frontend_assets: 
+    fullName: nginx-frontend-assets-dev-v2
 
 service:
   frontend: 
