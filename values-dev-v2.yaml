@@ -18,7 +18,7 @@ service:
     serviceName: rewura-frontend-service
     port: 8301
     portType: ClusterIP
-    image: gabendockerzone/rewura-frontend-v2:1acf2d4
+    image: gabendockerzone/rewura-frontend-v2:34b9d29
     componentSelector: web
   authorization: 
     serviceName: rewura-authorization-service
