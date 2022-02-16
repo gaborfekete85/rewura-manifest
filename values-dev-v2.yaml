@@ -3,13 +3,13 @@ application:
 
 ingress: 
   api: 
-    fullName: nginx-ingress-api-dev
+    fullName: nginx-ingress-api-dev-v2
   oauth2: 
-    fullName: nginx-ingress-oauth2-dev
+    fullName: nginx-ingress-oauth2-dev-v2
   frontend: 
-    fullName: nginx-ingress-frontend-dev
+    fullName: nginx-ingress-frontend-dev-v2
   frontend_oauth: 
-    fullName: nginx-ingress-frontend-oauth-dev
+    fullName: nginx-ingress-frontend-oauth-dev-v2
 
 service:
   frontend: 
