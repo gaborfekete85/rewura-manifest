@@ -42,7 +42,7 @@ service:
       - name: FACEBOOK_CLIENT_SECRET
         value: '97e1e2cfb217a1730563ad1361bda51c'
       - name: 'GOOGLE_APPLICATION_CREDENTIALS'
-        value: 'https://feketegabor.com/instaclone-5eae6-firebase-adminsdk-no4gm-902fdd671d.json'
+        value: '/app/resources/instaclone-5eae6-firebase-adminsdk-no4gm-902fdd671d.json'
   file: 
     serviceName: rewura-file-upload-service
     port: 8303
