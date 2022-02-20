@@ -43,7 +43,7 @@ service:
     serviceName: rewura-file-upload-service
     port: 8303
     portType: ClusterIP
-    image: gabendockerzone/file-upload-service:20aad91
+    image: gabendockerzone/file-upload-service:c8b93a9
     componentSelector: server-file
     environment: 
       - name: 'FIREBASE_API_KEY'
