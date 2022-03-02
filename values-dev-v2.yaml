@@ -24,7 +24,7 @@ service:
     serviceName: rewura-authorization-service
     port: 8302
     portType: ClusterIP
-    image: gabendockerzone/authorization-service:75af3f3
+    image: gabendockerzone/authorization-service:2650eda
     componentSelector: server
     environment: 
       - name: 'DATASOURCE_URL'
