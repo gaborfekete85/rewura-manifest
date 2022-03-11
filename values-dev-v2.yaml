@@ -14,6 +14,12 @@ ingress:
     fullName: nginx-frontend-assets-dev-v2
 
 service:
+  appointment: 
+    serviceName: rewura-appointment-service
+    port: 8305
+    portType: ClusterIP
+    image: gabendockerzone/appointment-service:d0498ea
+    componentSelector: server
   frontend: 
     serviceName: rewura-frontend-service
     port: 8301
